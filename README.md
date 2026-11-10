@@ -61,7 +61,7 @@ public/photos/        drone photos (add your own)
 
 ## Preview online
 
-The site publishes to GitHub Pages on every push to `main`. In the repo settings, Pages &gt; Source must be set to **GitHub Actions**.
+The site publishes to GitHub Pages on every push to `main`. In the repo settings, Pages > Source must be set to **GitHub Actions**.
 
 ## Rules from the SPEC page
 
