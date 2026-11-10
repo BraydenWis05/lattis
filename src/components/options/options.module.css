@@ -1,0 +1,108 @@
+/* The options panel is a design tool, not part of Lattis, so it uses its own neutral look. */
+.fab {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgb(255 255 255 / 0.25);
+  background: #1f1a1b;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.25);
+  transition: transform 120ms ease, background-color 120ms ease;
+}
+.fab:active { transform: scale(0.94); }
+.fabOn { background: #463437; }
+
+.panel {
+  position: fixed;
+  left: 20px;
+  bottom: 80px;
+  z-index: 100;
+  width: min(320px, calc(100vw - 40px));
+  max-height: min(640px, calc(100vh - 120px));
+  overflow-y: auto;
+  padding: 10px;
+  border-radius: 20px;
+  background: rgb(246 245 242 / 0.96);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 50px rgb(0 0 0 / 0.22);
+  font-family: var(--font-body);
+  color: #2b2526;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: rise 160ms ease-out;
+}
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } }
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 4px;
+  border-radius: 12px;
+  background: #e7e3dd;
+}
+.tab {
+  text-align: center;
+  padding: 8px 0;
+  border-radius: 9px;
+  font-size: 13px;
+  line-height: 16px;
+  color: #8a8284;
+}
+.tabOn { background: #fff; color: #2b2526; box-shadow: 0 1px 3px rgb(0 0 0 / 0.08); }
+
+.group { display: flex; flex-direction: column; gap: 6px; }
+.groupTitle { font-size: 12px; line-height: 16px; color: #8a8284; padding: 0 6px; }
+.rows { display: flex; flex-direction: column; gap: 4px; }
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 8px 8px 10px;
+  border-radius: 12px;
+  background: #eeebe6;
+}
+.rowLabel { display: flex; flex-direction: column; font-size: 13px; line-height: 17px; min-width: 0; }
+.meaning { font-size: 11px; line-height: 15px; color: #8a8284; }
+
+.segment {
+  display: flex;
+  flex-shrink: 0;
+  padding: 3px;
+  border-radius: 9px;
+  background: #e0dbd4;
+}
+.seg {
+  min-width: 26px;
+  height: 26px;
+  padding: 0 7px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  font-size: 12px;
+  color: #8a8284;
+  transition: background-color 100ms ease;
+}
+.seg:hover { color: #2b2526; }
+.segOn { background: #fff; color: #2b2526; box-shadow: 0 1px 2px rgb(0 0 0 / 0.08); }
+
+.footer { display: flex; gap: 6px; }
+.footerBtn {
+  flex: 1;
+  height: 34px;
+  border: 0;
+  border-radius: 10px;
+  background: #e7e3dd;
+  font-size: 12px;
+  color: #2b2526;
+}
+.footerBtn:active { background: #dcd7d0; }
+.empty { font-size: 12px; line-height: 16px; color: #8a8284; padding: 4px 6px 6px; }
+.empty code { font-size: 11px; }

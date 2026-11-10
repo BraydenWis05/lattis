@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { OptionsProvider } from "@/components/options/OptionsProvider";
+import { OptionsPanel } from "@/components/options/OptionsPanel";
 
 export const metadata: Metadata = {
   title: "Lattis",
@@ -19,7 +21,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Roboto+Flex:opsz,wght@8..144,400;8..144,600&family=Roboto+Mono:wght@500;600&family=Roboto:wght@500;600&display=swap"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <OptionsProvider>
+          {children}
+          <OptionsPanel />
+        </OptionsProvider>
+      </body>
     </html>
   );
 }

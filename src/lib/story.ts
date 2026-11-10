@@ -49,3 +49,29 @@ export const cow14 = {
     { title: "Ask Dr. Ruiz now", note: "She sees the drone photo after you say OK." },
   ],
 };
+
+/**
+ * Dale's herd, for the options panel's "Cows that need you" toggle.
+ * The order here is the order they get added (1 shows #14, 3 adds #7 and #22).
+ * `long` is a realistic long name, to check that names wrap instead of cutting off.
+ */
+export type HerdCow = {
+  id: string;
+  label: string;
+  long: string;
+  status: Status;
+  fact: string;
+  where: string;
+  seen: string;
+};
+
+export const daleNeedsYou: HerdCow[] = [
+  { id: "14", label: "#14", long: "#14, Big Red’s daughter", status: "Needs a look", fact: "Away from the herd 2 days, since Tuesday.", where: "West side, in the cedar", seen: "11:40 AM" },
+  { id: "7", label: "#7", long: "#7, the brindle cow from the Halvorsen sale", status: "Urgent", fact: "Lying down since 10:50 AM and hasn’t got up.", where: "North water lot", seen: "11:38 AM" },
+  { id: "22", label: "#22", long: "#22, Clementine, first-calf heifer", status: "Needs a look", fact: "Off alone and due Thursday.", where: "East side, by the creek", seen: "11:41 AM" },
+  { id: "3", label: "#3", long: "#3, Grandma’s old Angus cross", status: "FYI", fact: "A little thinner than last month.", where: "Front pasture", seen: "11:36 AM" },
+  { id: "19", label: "#19", long: "#19, the bald-faced cow with one horn", status: "FYI", fact: "More flies on her face than the others.", where: "West side", seen: "11:39 AM" },
+  { id: "26", label: "#26", long: "#26, Dolly, the bottle calf from 2021", status: "Needs a look", fact: "Slower than the herd this morning.", where: "Front pasture, by the gate", seen: "11:37 AM" },
+];
+
+export const statusOrder: Record<Status, number> = { Urgent: 0, "Needs a look": 1, FYI: 2 };

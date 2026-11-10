@@ -29,6 +29,13 @@ const paths: Record<string, React.ReactNode> = {
       <path d="M9 8.5h6M9 12h6M9 15.5h4" />
     </>
   ),
+  sliders: (
+    <>
+      <path d="M4 8h9M17 8h3M4 16h3M11 16h9" />
+      <circle cx="15" cy="8" r="2" />
+      <circle cx="9" cy="16" r="2" />
+    </>
+  ),
   mic: (
     <>
       <rect x="9" y="3.5" width="6" height="11" rx="3" />

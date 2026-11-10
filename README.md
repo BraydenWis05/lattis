@@ -21,6 +21,18 @@ npm run dev
 
 Then open http://localhost:3000.
 
+## The options panel
+
+The round button at the bottom left of every page opens the options panel:
+
+- **Tabs** switch between the three sections.
+- **Section options** switch between versions of a layout (A, B, C).
+- **Data** changes what the screen is showing: how many cows need you, how much each card shows, long names, a drone check that's flying or missed, no signal.
+
+Your choices are saved in the page link. **Copy link to this view** gives you a link that opens the same version for someone else.
+
+To add options to your section, add them to `src/lib/options.ts`, then read one in your page with `useOption("ranch", "layout")`.
+
 ## Where things live
 
 ```
