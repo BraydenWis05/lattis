@@ -41,7 +41,9 @@ export function OptionsProvider({ children }: { children: React.ReactNode }) {
       if (options[s] && v !== defaultOf(s, key)) params.set(k, v);
     }
     const q = params.toString();
-    window.history.replaceState(null, "", q ? `${pathname}?${q}` : pathname);
+    // window.location.pathname keeps the /lattis prefix on GitHub Pages.
+    const path = window.location.pathname;
+    window.history.replaceState(null, "", q ? `${path}?${q}` : path);
   }, [values, pathname]);
 
   const set = useCallback((section: SectionId, key: string, value: string) => {

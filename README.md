@@ -61,8 +61,14 @@ public/photos/        drone photos (add your own)
 
 ## Preview online
 
-Connect this repo to [Vercel](https://vercel.com/new) (free). Every push to `main` updates the site, and every pull request gets its own preview link.
+The site publishes to GitHub Pages on every push to `main`. In the repo settings, Pages &gt; Source must be set to **GitHub Actions**.
 
 ## Rules from the SPEC page
 
 The design decisions live on the SPEC page of the Figma file. Read it before changing a design, and log what you change in your own spec. See `CLAUDE.md` for the rules agents follow.
+
+## Live site
+
+https://braydenwis05.github.io/lattis/
+
+Every push to `main` rebuilds it (see `.github/workflows/pages.yml`). It takes about two minutes.
