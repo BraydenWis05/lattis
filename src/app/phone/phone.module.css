@@ -1,18 +1,26 @@
-/* The phone is always iPhone 17 size (402 x 874). It never shrinks; short windows scroll. */
+/* The phone is drawn at iPhone 17 size (402 x 874) and scaled down to fit the window's
+   height, so the whole screen is always visible without scrolling. */
 .stage {
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 16px 96px;
+  justify-content: center;
+  padding: 20px 16px;
   background: #e9e3da;
 }
+.fit { flex-shrink: 0; position: relative; }
 .device {
-  flex-shrink: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
   padding: 12px;
   border-radius: 62px;
   background: #1c1516;
   box-shadow: 0 30px 60px rgb(46 34 36 / 0.25);
 }
 .device > * { border-radius: 50px; }
-.caption { margin-top: 16px; font-size: 14px; line-height: 20px; color: #736466; }
+.caption { margin-top: 12px; font-size: 14px; line-height: 20px; color: #736466; }
