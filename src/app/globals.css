@@ -16,9 +16,9 @@
   --white: #ffffff;
 
   /* Type */
-  --font-title: "Orbikular", "Fraunces", Georgia, serif; /* swap to Orbikular when licensed */
+  --font-title: "Roboto Flex Variable", "Roboto Flex", system-ui, sans-serif; /* Figma uses Roboto Flex until Orbikular is licensed */
   --font-ui: "Roboto", system-ui, sans-serif;
-  --font-body: "Roboto Flex", "Roboto", system-ui, sans-serif;
+  --font-body: "Roboto Flex Variable", "Roboto Flex", system-ui, sans-serif;
   --font-label: "Roboto Mono", ui-monospace, monospace;
 
   /* Shape */

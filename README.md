@@ -21,6 +21,16 @@ npm run dev
 
 Then open http://localhost:3000.
 
+## The phone screens come straight from Figma
+
+The rancher app isn't redrawn by hand. On every build, `scripts/figma-sync.mjs` reads the Figma file and copies every phone screen, layer by layer: auto layout, spacing, colors, text styles, photos, icons and prototype links. `src/figma/Render.tsx` draws them, so the site matches Figma and every tap goes where the Figma prototype goes.
+
+- **To change a phone screen, change it in Figma,** then re-run the **Publish to GitHub Pages** workflow (Actions tab) or push anything.
+- It starts at the tab pages and follows every prototype link, so a new screen shows up once something links to it.
+- The phone is iPhone 17 size: 402 x 874.
+- Don't edit `src/figma/screens.json` by hand. The next sync replaces it.
+- The sync needs the repo secret `FIGMA_TOKEN` (a read-only Figma token).
+
 ## The options panel
 
 The round button at the bottom left of every page opens the options panel:

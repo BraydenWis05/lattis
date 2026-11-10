@@ -1,0 +1,18 @@
+/* The phone is always iPhone 17 size (402 x 874). It never shrinks; short windows scroll. */
+.stage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 16px 96px;
+  background: #e9e3da;
+}
+.device {
+  flex-shrink: 0;
+  padding: 12px;
+  border-radius: 62px;
+  background: #1c1516;
+  box-shadow: 0 30px 60px rgb(46 34 36 / 0.25);
+}
+.device > * { border-radius: 50px; }
+.caption { margin-top: 16px; font-size: 14px; line-height: 20px; color: #736466; }

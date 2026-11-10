@@ -8,6 +8,10 @@ This code is the coded version of the Lattis designs in Figma. The designs and t
 2. Read your person's own spec and their **For you** inbox.
 3. Check **Lattis · Group understanding** and **Needs attention**. Don't build something that contradicts an open disagreement without saying so.
 
+## The phone screens
+
+The rancher app (`/phone`) is drawn from the Figma file by `scripts/figma-sync.mjs` and `src/figma/Render.tsx`. To change a phone screen, change it in Figma, never in code. Fix the renderer only when it draws something differently from Figma.
+
 ## While you work
 
 1. Stay in your person's section when you can: `/phone` (Brayden), `/ranch` (Chris), `/vet` (Finley).

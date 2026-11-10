@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { options, sections, type Option, type SectionId } from "@/lib/options";
 import { useOption, useOptions } from "./OptionsProvider";
 import { Icon } from "@/components/Icon";
+import { screenList } from "@/figma/data";
 import styles from "./options.module.css";
 
 /** The round button at the bottom left, and the panel it opens. Shown on every page. */
@@ -80,6 +81,8 @@ export function OptionsPanel() {
             </section>
           ))}
 
+          {tab === "phone" && <ScreenJump />}
+
           {list.length > 0 && (
             <div className={styles.footer}>
               <button className={styles.footerBtn} onClick={() => reset(tab)}>
@@ -108,24 +111,64 @@ export function OptionsPanel() {
   );
 }
 
+/** Every phone screen from Figma, grouped by section, to jump straight to one. */
+function ScreenJump() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const groups = new Map<string, typeof screenList>();
+  for (const s of screenList) groups.set(s.section || "Screens", [...(groups.get(s.section || "Screens") || []), s]);
+  return (
+    <section className={styles.group}>
+      <p className={styles.groupTitle}>Go to a screen ({screenList.length})</p>
+      <div className={styles.screenList}>
+        {[...groups.entries()].map(([section, items]) => (
+          <div key={section} className={styles.screenGroup}>
+            <p className={styles.meaning}>{section}</p>
+            {items.map((s) => {
+              const here = pathname.replace(/\/$/, "") === `/phone/${s.slug}`;
+              return (
+                <button
+                  key={s.id}
+                  className={`${styles.screenItem} ${here ? styles.screenItemOn : ""}`}
+                  onClick={() => router.push(`/phone/${s.slug}`)}
+                >
+                  {s.name}
+                </button>
+              );
+            })}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function Row({ section, option }: { section: SectionId; option: Option }) {
   const { set } = useOptions();
+  const router = useRouter();
+  const pathname = usePathname();
   const value = useOption(section, option.key);
   const meaning = option.meaning?.[value];
+  const long = option.choices.join("").length > 16;
+  const choose = (c: string) => {
+    set(section, option.key, c);
+    // Phone options pick the screen the app opens on, so show it
+    if (section === "phone" && pathname.replace(/\/$/, "") !== "/phone") router.push("/phone");
+  };
   return (
-    <div className={styles.row}>
+    <div className={`${styles.row} ${long ? styles.rowStacked : ""}`}>
       <div className={styles.rowLabel}>
         <span>{option.label}</span>
         {meaning && <span className={styles.meaning}>{value}: {meaning}</span>}
       </div>
-      <div className={styles.segment} role="radiogroup" aria-label={option.label}>
+      <div className={`${styles.segment} ${long ? styles.segmentWrap : ""}`} role="radiogroup" aria-label={option.label}>
         {option.choices.map((c) => (
           <button
             key={c}
             role="radio"
             aria-checked={value === c}
             className={`${styles.seg} ${value === c ? styles.segOn : ""}`}
-            onClick={() => set(section, option.key, c)}
+            onClick={() => choose(c)}
             title={option.meaning?.[c]}
           >
             {c}

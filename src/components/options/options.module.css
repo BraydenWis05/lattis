@@ -106,3 +106,22 @@
 .footerBtn:active { background: #dcd7d0; }
 .empty { font-size: 12px; line-height: 16px; color: #8a8284; padding: 4px 6px 6px; }
 .empty code { font-size: 11px; }
+
+.rowStacked { flex-direction: column; align-items: stretch; }
+.segmentWrap { flex-wrap: wrap; gap: 2px; }
+.segmentWrap .seg { flex: 1 0 auto; }
+.screenList { display: flex; flex-direction: column; gap: 10px; max-height: 260px; overflow-y: auto; padding: 2px; }
+.screenGroup { display: flex; flex-direction: column; gap: 2px; }
+.screenGroup > .meaning { padding: 0 6px 2px; }
+.screenItem {
+  text-align: left;
+  border: 0;
+  border-radius: 8px;
+  padding: 7px 10px;
+  background: #eeebe6;
+  font-size: 13px;
+  line-height: 17px;
+  color: #2b2526;
+}
+.screenItem:hover { background: #e4e0da; }
+.screenItemOn { background: #fff; box-shadow: 0 1px 2px rgb(0 0 0 / 0.08); }

@@ -26,6 +26,10 @@ jobs:
       - id: pages
         uses: actions/configure-pages@v5
       - run: npm ci
+      - name: Pull the screens from Figma
+        run: node scripts/figma-sync.mjs
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
       - run: npm run build
         env:
           PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}

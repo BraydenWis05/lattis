@@ -1,0 +1,29 @@
+.screen {
+  position: relative;
+  overflow: hidden;
+  background: #faf9f5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.scroll {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  overscroll-behavior: contain;
+}
+.scroll::-webkit-scrollbar { display: none; }
+.node { box-sizing: border-box; flex-shrink: 0; }
+.tap { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.press { transition: filter 120ms ease, transform 120ms ease; }
+.press:active { filter: brightness(0.92); }
+.tap:focus-visible { outline: 2px solid #8db9e3; outline-offset: 2px; }
+.sym {
+  display: inline-block;
+  flex-shrink: 0;
+  vertical-align: middle;
+  background-color: currentColor;
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+}
