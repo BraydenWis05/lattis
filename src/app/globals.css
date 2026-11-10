@@ -1,0 +1,95 @@
+/*
+ * Lattis tokens. These mirror the color and text styles in the Figma file
+ * (User Interface, local styles). Change them in Figma first, then here.
+ */
+:root {
+  /* Color roles */
+  --cream: #faf9f5;          /* Lattis v4 / Hereford Cream: background */
+  --warm: #efeae3;           /* Surface / Warm: cards */
+  --primary: #463437;        /* Action / Primary: the one main action, text */
+  --primary-pressed: #2e2224;
+  --secondary: #b35e37;      /* Action / Secondary: needs you */
+  --secondary-text: #9e512d; /* Action / Secondary text: orange words, passes contrast */
+  --neutral: #736466;        /* Action / Neutral: secondary text */
+  --accent: #8db9e3;         /* Accent: drone and map only */
+  --accent-tint: rgb(141 185 227 / 0.35);
+  --white: #ffffff;
+
+  /* Type */
+  --font-title: "Orbikular", "Fraunces", Georgia, serif; /* swap to Orbikular when licensed */
+  --font-ui: "Roboto", system-ui, sans-serif;
+  --font-body: "Roboto Flex", "Roboto", system-ui, sans-serif;
+  --font-label: "Roboto Mono", ui-monospace, monospace;
+
+  /* Shape */
+  --radius-card: 16px;
+  --radius-pill: 999px;
+  --gutter: 24px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--cream);
+  color: var(--primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+h1, h2, h3, p { margin: 0; }
+
+/* Shared pieces used by all three sections */
+.label {
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--neutral);
+}
+.title {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+}
+.row { font-family: var(--font-ui); font-weight: 500; font-size: 16px; line-height: 22px; }
+.small { font-size: 14px; line-height: 20px; color: var(--neutral); }
+.muted { color: var(--neutral); }
+.needs-you { color: var(--secondary-text); }
+
+.card {
+  background: var(--warm);
+  border-radius: var(--radius-card);
+  padding: 16px 20px;
+}
+.stack { display: flex; flex-direction: column; }
+.gap-4 { gap: 4px; } .gap-8 { gap: 8px; } .gap-12 { gap: 12px; } .gap-24 { gap: 24px; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: var(--radius-pill);
+  border: 0;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 16px;
+  transition: background-color 120ms ease, transform 120ms ease;
+}
+.btn:active { transform: scale(0.98); }
+.btn-primary { background: var(--primary); color: var(--white); }
+.btn-primary:hover { background: var(--primary-pressed); }
+.btn-secondary { background: var(--white); color: var(--primary); }
+.btn-text { background: transparent; color: var(--primary); }
+.btn-block { width: 100%; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

@@ -1,0 +1,155 @@
+.stage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 40px 16px;
+  background: #e9e3da;
+}
+.device {
+  width: 414px;
+  max-width: 100%;
+  padding: 12px;
+  border-radius: 56px;
+  background: #1c1516;
+  box-shadow: 0 30px 60px rgb(46 34 36 / 0.25);
+}
+.screen {
+  position: relative;
+  height: 844px;
+  max-height: calc(100vh - 120px);
+  border-radius: 44px;
+  overflow: hidden;
+  background: var(--cream);
+}
+.statusBar {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 28px 0;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--white);
+  pointer-events: none;
+}
+.back {
+  position: absolute;
+  top: 48px;
+  left: 20px;
+  z-index: 3;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--white);
+}
+.scroll {
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 120px;
+  scrollbar-width: none;
+}
+.scroll::-webkit-scrollbar { display: none; }
+
+/* Hero: a stand-in for the drone photo until real photos are added */
+.hero {
+  min-height: 340px;
+  padding: 96px var(--gutter) 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  color: var(--white);
+  background: #4f5a3a url("/photos/pasture.jpg") center / cover;
+}
+.heroMap { background: #6f8a5a url("/photos/map.jpg") center / cover; }
+.heroEyebrow {
+  font-family: var(--font-label);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  opacity: 0.8;
+}
+.greeting {
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
+}
+.dim { opacity: 0.6; }
+.pill {
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: rgb(255 255 255 / 0.16);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.sheet {
+  position: relative;
+  margin-top: -32px;
+  padding: 24px 0;
+  border-radius: 28px 28px 0 0;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.sheet > * { margin: 0 var(--gutter); }
+
+.navWrap {
+  position: absolute;
+  inset: auto 16px 24px;
+  z-index: 4;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  box-shadow: 0 8px 24px rgb(46 34 36 / 0.12);
+}
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 44px;
+  min-width: 44px;
+  padding: 0 12px;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 14px;
+}
+.tabActive { background: var(--primary); color: var(--white); }
+.mic {
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--white);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 24px rgb(46 34 36 / 0.2);
+}
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
