@@ -179,6 +179,8 @@ function shadows(n: FNode) {
     else if (e.t === "INNER_SHADOW") list.push(`inset ${e.x}px ${e.y}px ${e.r}px ${e.s}px ${css(e.c)}`);
     else if (e.t === "LAYER_BLUR") filters.push(`blur(${e.r / 2}px)`);
     else if (e.t === "BACKGROUND_BLUR") backdrop = `blur(${e.r / 2}px)`;
+    // iOS Liquid Glass from the Apple kit: closest CSS is a frosted backdrop
+    else if (e.t === "GLASS" && !backdrop) backdrop = "blur(14px) saturate(1.6)";
   }
   const s: CSSProperties = {};
   if (list.length) s.boxShadow = list.join(", ");

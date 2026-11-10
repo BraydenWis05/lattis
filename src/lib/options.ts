@@ -29,18 +29,17 @@ export const sections: { id: SectionId; name: string; href: string }[] = [
 export const options: Record<SectionId, Option[]> = {
   phone: [
     {
-      key: "where",
-      label: "Where the rancher is",
+      key: "start",
+      label: "Where the app opens",
       group: "Versions",
-      choices: ["Away", "In the field"],
-      default: "Away",
-    },
-    {
-      key: "state",
-      label: "What's happening",
-      group: "Data",
-      choices: ["Normal", "Drone flying", "Pass didn’t finish", "Tom, read-only", "Busy week"],
-      default: "Normal",
+      choices: ["1:45 AM", "3:19 AM", "5:30 AM", "Today"],
+      meaning: {
+        "1:45 AM": "lock screen, a quiet watch",
+        "3:19 AM": "lock screen, the one alert",
+        "5:30 AM": "the morning report",
+        Today: "the Today tab, 9:10 AM",
+      },
+      default: "1:45 AM",
     },
   ],
   ranch: [],

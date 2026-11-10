@@ -15,12 +15,15 @@ import { createHash } from "node:crypto";
 import path from "node:path";
 
 const FILE_KEY = "3o12PsA7e3ORLlmHzaYjNm";
-// Where the prototype starts: the tab pages, both versions, Talk to Lattis and the edge cases.
+// Where the prototype starts: the Final App Flow page. The night in calving season, from the
+// 1:45 AM lock screen, and the four tab pages. Every prototype link from these is followed.
 const START = [
-  "343:2372", "343:2459", "343:2590", "343:2718", "382:1980",
-  "359:2557", "359:2653", "359:2755", "359:2840", "382:2008",
-  "404:2040", "404:2135", "404:2232", "404:2322",
+  "649:136", "638:18", "638:109", "638:150", "638:242", "649:226", "638:349",
+  "659:144", "659:215", "659:286", "659:357",
 ];
+// Frames that sit loose on a page (not in a section) are grouped by these names instead
+const GROUP = (name, page) =>
+  page === "Final App Flow" ? (/^Tab /.test(name) ? "Tab pages" : "A night in calving season") : page;
 const MAX_SCREENS = 150;
 
 const token = process.env.FIGMA_TOKEN;
@@ -221,8 +224,12 @@ const seen = new Set();
 
 // Section names, so the screen list can be grouped
 const top = await api(`/v1/files/${FILE_KEY}?depth=2`);
-for (const pg of top.document.children) for (const s of pg.children || []) if (s.type === "SECTION") sectionOf[s.id] = s.name;
 const sectionChildren = {};
+for (const pg of top.document.children)
+  for (const s of pg.children || []) {
+    if (s.type === "SECTION") sectionOf[s.id] = s.name;
+    else if (s.type === "FRAME") sectionChildren[s.id] = GROUP(s.name, pg.name);
+  }
 {
   const ids = Object.keys(sectionOf);
   for (let i = 0; i < ids.length; i += 20) {
