@@ -10,7 +10,7 @@ This code is the coded version of the Lattis designs in Figma. The designs and t
 
 ## The phone screens
 
-The rancher app (`/phone`) is drawn from the Figma file by `scripts/figma-sync.mjs` and `src/figma/Render.tsx`. To change a phone screen, change it in Figma, never in code. Fix the renderer only when it draws something differently from Figma.
+The rancher app (`/phone`) is hand-coded in `src/app/phone/app/` from the Figma Final App Flow page. Figma is the design reference: match it exactly, and when a screen changes in Figma, update the code to match. Don't render screens from Figma data or images of screens.
 
 ## While you work
 

@@ -21,6 +21,18 @@
   --font-body: "Roboto Flex Variable", "Roboto Flex", system-ui, sans-serif;
   --font-label: "Roboto Mono", ui-monospace, monospace;
 
+  /* Riff: the rancher app's look (Figma: Final App Flow page, Riff/ styles) */
+  --riff-bg: #fcfbf8;
+  --riff-ink: #171112;       /* Riff/Ink: titles and body */
+  --riff-muted: #736466;     /* Riff/Muted */
+  --riff-faint: #aa9d9f;     /* Riff/Faint: sources and counts */
+  --riff-line: #e2dbd2;      /* Riff/Line: rows and tabs */
+  --riff-border: #d0c8ca;    /* white cards */
+  --riff-pill: #efeae3;      /* choice pills */
+  --night: #0a0d17;          /* drone night tint */
+  --font-display: "Fraunces Variable", "Fraunces", Georgia, serif; /* Figma: Orbikular TRIAL, Fraunces until it's licensed */
+  --font-ios: -apple-system, "SF Pro Text", "SF Pro", system-ui, sans-serif;
+
   /* Shape */
   --radius-card: 16px;
   --radius-pill: 999px;

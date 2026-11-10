@@ -3,6 +3,7 @@ import "@fontsource-variable/roboto-flex/full.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/600.css";
 import "@fontsource/roboto-mono/500.css";
+import "@fontsource-variable/fraunces/full.css";
 import "./globals.css";
 import { OptionsProvider } from "@/components/options/OptionsProvider";
 import { OptionsPanel } from "@/components/options/OptionsPanel";

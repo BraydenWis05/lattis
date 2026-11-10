@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Screen } from "@/figma/Render";
-import { assets, hrefFor, type ScreenData } from "@/figma/data";
+import { SCREENS } from "./app/screens";
+import { routeFor, type Slug } from "./app/routes";
 import styles from "./phone.module.css";
 
 // iPhone 17: 1206 x 2622 pixels at 3x = 402 x 874 points
@@ -28,16 +28,19 @@ function useFit() {
   return scale;
 }
 
-export function PhoneDevice({ screen }: { screen: ScreenData }) {
+export function PhoneDevice({ slug }: { slug: Slug }) {
   const scale = useFit();
+  const Screen = SCREENS[slug];
   return (
     <main className={styles.stage}>
       <div className={styles.fit} style={{ width: DEVICE.width * scale, height: DEVICE.height * scale }}>
         <div className={styles.device} style={{ transform: `scale(${scale})` }}>
-          <Screen tree={screen.tree} assets={assets} hrefFor={hrefFor} width={PHONE.width} height={PHONE.height} />
+          <div className={styles.glass} style={{ width: PHONE.width, height: PHONE.height }}>
+            <Screen />
+          </div>
         </div>
       </div>
-      <p className={styles.caption}>{screen.name}</p>
+      <p className={styles.caption}>{routeFor(slug)?.name}</p>
     </main>
   );
 }

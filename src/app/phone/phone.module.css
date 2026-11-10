@@ -22,5 +22,5 @@
   background: #1c1516;
   box-shadow: 0 30px 60px rgb(46 34 36 / 0.25);
 }
-.device > * { border-radius: 50px; }
+.glass { border-radius: 50px; overflow: hidden; transform: translateZ(0); }
 .caption { margin-top: 12px; font-size: 14px; line-height: 20px; color: #736466; }

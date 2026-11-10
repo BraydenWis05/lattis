@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { options, sections, type Option, type SectionId } from "@/lib/options";
 import { useOption, useOptions } from "./OptionsProvider";
 import { Icon } from "@/components/Icon";
-import { screenList } from "@/figma/data";
+import { ROUTES } from "@/app/phone/app/routes";
 import styles from "./options.module.css";
 
 /** The round button at the bottom left, and the panel it opens. Shown on every page. */
@@ -115,11 +115,11 @@ export function OptionsPanel() {
 function ScreenJump() {
   const router = useRouter();
   const pathname = usePathname();
-  const groups = new Map<string, typeof screenList>();
-  for (const s of screenList) groups.set(s.section || "Screens", [...(groups.get(s.section || "Screens") || []), s]);
+  const groups = new Map<string, (typeof ROUTES)[number][]>();
+  for (const s of ROUTES) groups.set(s.group, [...(groups.get(s.group) || []), s]);
   return (
     <section className={styles.group}>
-      <p className={styles.groupTitle}>Go to a screen ({screenList.length})</p>
+      <p className={styles.groupTitle}>Go to a screen ({ROUTES.length})</p>
       <div className={styles.screenList}>
         {[...groups.entries()].map(([section, items]) => (
           <div key={section} className={styles.screenGroup}>
@@ -128,7 +128,7 @@ function ScreenJump() {
               const here = pathname.replace(/\/$/, "") === `/phone/${s.slug}`;
               return (
                 <button
-                  key={s.id}
+                  key={s.slug}
                   className={`${styles.screenItem} ${here ? styles.screenItemOn : ""}`}
                   onClick={() => router.push(`/phone/${s.slug}`)}
                 >
